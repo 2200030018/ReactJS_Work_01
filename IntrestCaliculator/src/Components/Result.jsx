@@ -4,7 +4,7 @@ export default function Result({userinput}){
     const resultdata=Caliculator(userinput);
     return (
     <>
-        <h3>Compound Interest Formula: &nbsp; A = P × (1 + r/100)<sup>n</sup></h3>
+        <h1>Compound Interest Formula: &nbsp; A = P × (1 + r/100)<sup>n</sup></h1>
 
         <table>
             <thead>
