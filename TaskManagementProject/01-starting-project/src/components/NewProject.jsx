@@ -31,7 +31,7 @@ export default function NewProject({onAdd, onCancel}){
             <p className='text-stone-600 mb-4'>Oops... looks like you forgot to enter a value. </p>
             <p className='text-stone-600 mb-4'>Please enter the correct Data</p>
         </Model>
-        <div className="w-[35rem] mt-16">
+        <div className="w-[50rem] mt-16">
             <menu className="flex items-center justify-end gap-4 my-4">
                 <li>
                     <button onClick={onCancel}
