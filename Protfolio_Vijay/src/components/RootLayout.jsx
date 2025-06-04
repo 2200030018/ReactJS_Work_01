@@ -1,18 +1,22 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
+import { useEffect } from "react";
 
 export default function RootLayout() {
+  useEffect(() => {
+    if (!sessionStorage.getItem("reloaded")) {
+      sessionStorage.setItem("reloaded", "true");
+      window.location.reload();
+    }
+  }, []);
   return (
-    <div className="flex min-h-screen bg-stone-900">
-      {/* Fixed Navbar */}
-      <div className="fixed left-0 top-0 h-screen z-50">
-        <Navbar />
-      </div>
+    <div className="flex flex-col sm:flex-row min-h-screen bg-gradient-to-br from-black to-green-950">
+      <Navbar />
 
-      {/* Scrollable Main Content, with left margin to not overlap the navbar */}
-      <div className="ml-96 flex-1 h-screen overflow-y-auto p-10 text-white">
+      {/* Main content */}
+      <main className="flex-1 overflow-y-auto p-4 pt-20 sm:pt-4 sm:ml-72 text-white">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }

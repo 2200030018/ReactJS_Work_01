@@ -13,40 +13,37 @@ export default function Certifications() {
           return newFlips;
         });
 
-        // Flip back after 1 second
         setTimeout(() => {
           setFlippedCards((prev) => {
             const newFlips = [...prev];
             newFlips[index] = false;
             return newFlips;
           });
-        }, 800);
+        }, 900);
       });
-    }, 5000);
+    }, 4000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="min-h-screen px-8 py-14">
+    <div className="max-w-screen-xl w-full mx-auto px-4 py-14 min-h-screen">
       <h2 className="text-4xl font-bold text-center mb-12 text-indigo-300 font-mono">
         My Certifications
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {certificateData.map((cert, index) => (
-          <div
-            key={cert.id}
-            className="relative perspective"
-          >
+          <div key={cert.id} className="relative perspective">
             <div
               className={`relative w-full h-80 transition-transform duration-700 transform-style-preserve-3d ${
                 flippedCards[index] ? "rotate-y-180" : ""
               }`}
             >
               {/* Front Side */}
-              <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-[#000000] to-[#5d6049] rounded-full shadow-lg shadow-yellow-200 border border- p-6 flex flex-col justify-center items-center">
+              <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-black to-stone-700 rounded-3xl shadow-lg shadow-yellow-200 border p-6 flex flex-col justify-center items-center">
                 <img
-                  src={`src/assets/cert_images/${cert.image}`}
+                  src={`assets/${cert.image}`}
                   alt={cert.name}
                   className="w-24 h-24 object-contain mb-4"
                 />
@@ -71,7 +68,7 @@ export default function Certifications() {
               {/* Back Side */}
               <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-black rounded-full flex items-center justify-center border border-cyan-700 shadow-inner shadow-yellow-200">
                 <img
-                  src={`src/assets/cert_images/${cert.image}`}
+                  src={`/assets/${cert.image}`}
                   alt="Back"
                   className="w-48 h-48 object-contain"
                 />
